@@ -41,11 +41,31 @@ int equalSum(int n, vector<int> &A) {
     return ans;
 }
 
+//* Approach 2 using O(1) Auxillary Space 
+int equalSum(int N, vector<int> &A) {
+        
+    if(N==1)
+        return N;
+
+    int preSum = 0, sum = 0;
+    for(auto &i : A) sum += i;
+
+    int cnt = 0;
+    for(auto &i : A) {
+        if(sum - preSum - i == preSum)
+            return cnt+1;
+        preSum += i;    
+        cnt++;
+    }
+    return -1;
+}
+
+
 int main()
 {
   vector<int> v = {1,3,5,2,2};
 
-  cout << equalSum(5,v) << endl;
+  cout << equalSum2(5,v) << endl;
 
   return 0;
 }
