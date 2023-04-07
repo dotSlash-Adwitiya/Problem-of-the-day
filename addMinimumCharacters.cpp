@@ -4,6 +4,7 @@ using namespace std;
 //* BRUTE FORCE Approach by finding the length of the longest palindrome in the string from the prefix of the given string,
 //* And subtracting it from the overall length of the given string.
 
+//* Palindromic Function below :
 bool isPalindrome(string str) {
     int i = 0;
     int j = str.size()-1;
