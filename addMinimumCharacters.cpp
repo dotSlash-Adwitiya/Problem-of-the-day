@@ -34,6 +34,25 @@ int addMinChar(string str){
     return n-ans;
 }
 
+//* New Two Pointer INTUITIVE Approach ! Please try yourself before seeing !
+int addMinChar(string str){    
+    int n = str.size();
+
+    int start = 0, end = n-1, res = 0;
+
+    while(start < end){
+        if(str[start] == str[end]) start++, end--;
+
+        else {
+            res++;
+            start = 0;
+            end = n - res - 1;
+        }
+    }
+    return res;
+
+}
+
 int main()
 {
   string str = "AASFASA";
