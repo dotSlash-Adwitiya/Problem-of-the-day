@@ -43,6 +43,12 @@ vector<long long> smallerSum(int n,vector<int> &arr){
     return ans;
 }
 
+//* NEW Thing I learnt : 
+/*
+    for(int &i : arr){
+        long long temp = hashMap.at(i);
+        this above line .at() will give us the second value in map (as every element stored in map is of key:value format)
+*/
 int main ()
 {
     vector<int> v = {12 ,4, 6, 9, 4, 6};
