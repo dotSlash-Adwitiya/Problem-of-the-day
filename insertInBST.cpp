@@ -41,6 +41,7 @@ Node* insert(Node* node, int data) {
 }
 
 //* Recursive (OPTIMISED Solution)
+//* TC : O(H), SC : O(H) Where H = Height of Tree which is LogN
 Node* insert(Node* node, int data) {
 
   //* If we've reached the end then create a newNode, and return it.
