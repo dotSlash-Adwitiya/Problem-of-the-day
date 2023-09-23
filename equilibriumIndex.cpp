@@ -21,7 +21,7 @@ int equilibriumPoint(long long a[], int n) {
   return -1;
 }
 
-//* Most Optimised! - W/O Sum variable Approach !! - Prefix SUM
+//* Most Optimised! - W/O Sum variable Approach !! - gPrefix SUM
 int equilibriumPoint(long long a[], int n) {
     if(n==1)return 1;
     
