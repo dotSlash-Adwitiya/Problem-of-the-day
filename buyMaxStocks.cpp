@@ -1,6 +1,12 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+/*
+//* Major learning from this question :
+//* If you need to sort based on the combination of array's value (arr[i]) and index
+//* Then you can make a separate arr of PAIRS ! and sort(), that sorting will be done based on pair.first
+*/
+
 int buyMaximumProducts(int n, int amt, int price[]){
   
   vector<pair<int, int>> vec;
@@ -16,9 +22,9 @@ int buyMaximumProducts(int n, int amt, int price[]){
   //     cout << " Key : " << it->first << " Value: " << it->second << endl;
   
   // Self Explanatory Code :-
-  for(auto it = vec.begin(); it != vec.end(); it++) {
-      int stocksCanBeBought = it->second;
-      int costForCurrDay = it->first;
+  for(const auto& stock : vec) {
+      int stocksCanBeBought = stock.second;
+      int costForCurrDay = stock.first;
       while(stocksCanBeBought != 0 && amt - costForCurrDay >= 0){
           amt -= costForCurrDay;
           stocksCanBeBought -= 1;
