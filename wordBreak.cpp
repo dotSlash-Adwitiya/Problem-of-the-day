@@ -17,8 +17,8 @@ int helper(int i, unordered_set<string> &st, string &s) {
       // * Check if the word already exists in the dictionary
       if(st.find(temp) != st.end()){
           
-          // * Make a call for remaining chars as, their is a possibility that :-
-          // [geeks, geeksfor, geeksforgeek, geeksforgeeks], s = geeksforgeeks
+          // * If the word till curr Char is found, search for remaining words
+          // * Ex : [leet, cod, code, sdfd], s = leetcode
           if(helper(j+1, st, s)) 
               return 1;
       }
@@ -44,8 +44,8 @@ int helperDebug(int i, unordered_set<string> &st, string &s) {
       // * Check if the word already exists in the dictionary
       if(st.find(temp) != st.end()){
           
-          // * Make a call for remaining chars as, their is a possibility that :-
-          // [geeks, geeksfor, geeksforgeek, geeksforgeeks], s = geeksforgeeks
+          // * If the word till curr Char is found, search for remaining words
+          // * Ex : [leet, cod, code, sdfd], s = leetcode
           if(helper(j+1, st, s)) {
               cout << "Found" << temp << endl;
               return 1;
@@ -86,8 +86,8 @@ int helperDP(int i, unordered_set<string> &st, string &s, vector<int> &dp) {
       // * Check if the word already exists in the dictionary
       if(st.find(temp) != st.end()){
           
-          // * Make a call for remaining chars as, their is a possibility that :-
-          // [geeks, geeksfor, geeksforgeek, geeksforgeeks], s = geeksforgeeks
+          // * If the word till curr Char is found, search for remaining words
+          // * Ex : [leet, cod, code, sdfd], s = leetcode
           if(helperDP(j+1, st, s, dp))
               return dp[i] = 1;
       }
