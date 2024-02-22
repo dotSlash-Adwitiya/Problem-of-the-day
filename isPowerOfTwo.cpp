@@ -12,6 +12,18 @@ bool isPowerofTwo(long long n){
   return isPowerofTwo(n /= 2);
 }
 
+// * Practice :-
+bool isPowerOfTwo(int n) {
+  if(n == 0)
+      return false;
+  if(n == 1)
+      return true;
+
+  if(n % 2 == 0)
+      return isPowerOfTwo(n/2);
+  return false;
+}
+
 int main()
 {
   long long n;
