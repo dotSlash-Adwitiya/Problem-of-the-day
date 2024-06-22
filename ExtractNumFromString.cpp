@@ -6,6 +6,7 @@ long long convert(string str) {
   for(int i = 0; i < str.size(); i++){
       if(str[i] == '9') // * If the num consists of a 9 then it cannot be our ans
           return -1;
+      // * Writing : num *= 10 + str[i] WILL NOT WORK!!!!
       num = num * 10 + str[i] - '0';
   }
   // cout << "Num is: " << num << endl;
