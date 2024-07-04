@@ -34,3 +34,44 @@ ListNode* mergeNodes(ListNode* head) {
   }
   return newHead;
 }
+
+// * Approach-2: Merginng the nodes, w/o creating a new node. 
+ListNode* mergeNodes(ListNode* head) {
+  ListNode *currPtr = head, *prevPtr = NULL;
+  
+  // * Edge case (not neccessary)
+  // * As the question specifiecs, there's no such TC with consecutive 0s
+  if(!head || head->next == 0)
+      return head;
+
+  // * Initial configuration: Find the 1st non-zero node
+  currPtr = head->next;
+  delete head;
+  head = currPtr;
+  // * Initial Config end
+
+  while(currPtr) {
+      int sum = 0;
+      // * Add all the non-zero nodes, and delete during traversal
+      while(currPtr && currPtr->val != 0){
+          sum += currPtr->val;
+          ListNode* temp = currPtr;
+          currPtr = currPtr->next;
+          delete temp;
+      }
+      // * Update current node's value with sum
+      currPtr->val = sum;
+
+      // * If this is a 2nd 0
+      if(prevPtr == NULL){
+          prevPtr = currPtr;
+          head = prevPtr;
+      } else {
+          prevPtr->next = currPtr;
+          prevPtr = currPtr;
+      }
+      currPtr = currPtr->next;
+      prevPtr->next = NULL;
+  }
+  return head;
+}
