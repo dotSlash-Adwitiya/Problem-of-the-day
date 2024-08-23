@@ -7,6 +7,7 @@ struct Node {
   Node* right;
 };
 
+
 void preorderTraversal(Node* root, vector<int> &ans, int level){
   if(root==NULL){
       return;
