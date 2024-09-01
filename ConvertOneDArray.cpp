@@ -10,5 +10,6 @@ vector<vector<int>> construct2DArray(vector<int>& A, int m, int n) {
           ans[i][j] = A[k++];
       }
   }
+  
   return ans;
 }
