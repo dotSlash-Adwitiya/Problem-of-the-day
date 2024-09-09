@@ -64,3 +64,40 @@ vector<vector<int>> spiralMatrix(int m, int n, ListNode* head) {
 
   return spiral;
 }
+
+// * MUCH BETTER CODE (After removing unneccessary stuff)
+void fillSpiral(vector<vector<int> > & matrix, ListNode * &head) {
+  int r = matrix.size(), c = matrix[0].size();
+  int startCol = 0, startRow = 0, endCol = c - 1, endRow = r - 1;
+  // int cnt = 0; // * This can be avoided because linkedlist nodes are in range [1, m*n]
+
+  // * As soon as nodes are not left, stop the LOOP!!
+  while(head) {
+      for(int i = startCol; i <= endCol && head; i++, head = head->next)
+          matrix[startCol][i] = head->val;
+          
+      startRow++;
+      for(int i = startRow; i <= endRow && head; i++, head = head->next)    
+          matrix[i][endCol] = head->val;
+          
+      endCol--;
+      for(int i = endCol; i >= startCol && head; i--, head = head->next)
+          matrix[endRow][i] = head->val;
+
+      endRow--;
+      for(int i = endRow; i >= startRow && head; i--, head = head->next)
+          matrix[i][startCol] = head->val;
+          
+      startCol++;
+  }
+}
+vector<vector<int>> spiralMatrix(int m, int n, ListNode* head) {
+  
+  // * Create an m*n matrix, and initially fill with -1
+  vector<vector<int>> spiral(m, vector<int> (n, -1));
+
+  // * Fill spiral matrix with linkedlist data
+  fillSpiral(spiral, head);
+
+  return spiral;
+}
