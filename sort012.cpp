@@ -19,3 +19,15 @@ void sortColors(vector<int>& nums) {
       }
   }
 }
+
+// * GfG PoTD - 09-Sept-2024 (Efficient and minimal code)
+void sort012(vector<int>& arr) {
+    int n = arr.size();
+    int left = 0, right = n-1, mid = 0;
+    
+    while(mid <= right){
+        if(arr[mid] == 0) swap(arr[left++], arr[mid++]);
+        else if(arr[mid] == 1) mid++;
+        else swap(arr[mid], arr[right--]);
+    }
+}
