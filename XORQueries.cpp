@@ -16,3 +16,21 @@ vector<int> xorQueries(vector<int>& arr, vector<vector<int>>& queries) {
   }
   return xorAns;
 }
+
+// * OPTIMISED Approach
+vector<int> xorQueries(vector<int>& arr, vector<vector<int>>& queries) {
+  vector<int> xorAns;
+  
+  for(int i = 1; i < arr.size(); i++)
+      arr[i] ^= arr[i - 1];
+
+  for(const auto &query : queries) {
+      int left = query[0];
+      int right = query[1];
+
+      if(left != 0) xorAns.push_back(arr[left - 1] ^  arr[right]);
+      else xorAns.push_back(arr[right]);
+      
+  }
+  return xorAns;
+}
