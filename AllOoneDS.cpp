@@ -1,6 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+// * Problem Link: https://leetcode.com/problems/all-oone-data-structure/description/?envType=daily-question&envId=2024-09-29
+
 class AllOne {
 public:
 
