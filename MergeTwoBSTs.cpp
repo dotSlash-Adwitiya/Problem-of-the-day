@@ -12,6 +12,21 @@ struct Node {
   }
 };
 
+// * T.C: O(nlogn) & S.C: O(N)
+ void inorder(Node* root, vector<int> &v){
+    if(!root) return;
+    inorder(root->left, v);
+    v.push_back(root->data);
+    inorder(root->right, v);
+}
+vector<int> merge(Node *root1, Node *root2) {
+    vector<int> v;
+    inorder(root1, v);
+    inorder(root2, v);
+    sort(v.begin(), v.end());
+    return v;
+}
+
 void inorder(Node* root, vector<int> &v){
   if(!root) return;
   inorder(root->left, v);
@@ -19,6 +34,7 @@ void inorder(Node* root, vector<int> &v){
   inorder(root->right, v);
 }
 
+// * T.C: O(n) & S.C: O(N)
 vector<int> merge(vector<int> &v1, vector<int> &v2){
   vector<int> ans;
   int i = 0, j = 0, n = v1.size(), m = v2.size();
